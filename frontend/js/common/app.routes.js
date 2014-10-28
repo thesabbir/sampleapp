@@ -13,8 +13,15 @@ angular.module('app.routes', ['ui.router'])
         templateUrl: 'tpl/app.html'
       })
       .state('products', {
-        url:'/products',
+        url: '/products',
         templateUrl: 'tpl/products/products.html',
-        controller: 'ProductsCtrl'
+        controller: 'ProductsCtrl',
+        resolve: {
+          products: ["$sailsSocket", function ($sailsSocket) {
+            return $sailsSocket.get('/api/product').then(function (res) {
+              return res.data;
+            });
+          }]
+        }
       });
   }]);
