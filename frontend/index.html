@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" data-ng-app="App" data-ng-controller="AppCtrl">
 <head>
-    <meta charset="utf-8"/>
-    <title ng-bind="app.name">Sample App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <!-- inject:vendor:css -->
-    <link rel="stylesheet" href="/vendors/css/bootstrap.css">
-    <link rel="stylesheet" href="/vendors/css/font-awesome.css">
-    <link rel="stylesheet" href="/vendors/css/footable.core.css">
-    <!-- endinject -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/styles/app.css">
-    <!-- endinject -->
+  <meta charset="utf-8"/>
+  <title ng-bind="app.name">Sample App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <!-- inject:vendor:css -->
+  <link rel="stylesheet" href="/vendors/css/bootstrap.css">
+  <link rel="stylesheet" href="/vendors/css/font-awesome.css">
+  <link rel="stylesheet" href="/vendors/css/footable.core.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/styles/app.css">
+  <!-- endinject -->
 
 </head>
 <body>
-
-<div class="app" id="app" ui-view></div>
+<div class="container">
+  <div data-ng-include="'tpl/nav.html'"></div>
+  <div class="app" id="app" ui-view></div>
+  <div data-ng-include="'tpl/footer.html'"></div>
+</div>
 
 <!-- inject:vendor:js -->
 <script src="/vendors/js/jquery.js"></script>

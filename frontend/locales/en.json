@@ -1,8 +1,19 @@
 {
-  "nav" : {
-    "DASHBOARD" : "Dashboard",
-    "PRODUCTS" : "Products",
-    "ADDANEW" : "Add a New",
-    "LISTALLPRODUCTS": "List All Products"
+  "app": {
+    "WELCOME": "Welcome to Dashboard. Please Refer to Products App"
+  },
+  "nav": {
+    "DASHBOARD": "Dashboard",
+    "PRODUCTS": "Products"
+  },
+  "modal": {
+    "delete": {
+      "ACTION": "Please confirm your action :",
+      "MESSAGE": "Are you sure you want to delete this product ?"
+    }
+  },
+  "products" : {
+        "ADDANEW": "Add a New"
+
   }
 }

@@ -6,15 +6,15 @@ var App = angular.module('App', [
   'ngCookies',
   'ngStorage',
   'app.configs',
-  'app.products',
   'app.routes',
-  'app.translate'
+  'app.translate',
+  'app.products'
 ])
-  .config(function ($sampleAppConfigProvider) {
+  .config(["$sampleAppConfigProvider", function ($sampleAppConfigProvider) {
     $sampleAppConfigProvider.setName('Sample App');
-  }
+  }]
 )
-  .controller('AppCtrl', function ($scope, $sampleAppConfig, $window) {
+  .controller('AppCtrl', ["$scope", "$sampleAppConfig", "$window", function ($scope, $sampleAppConfig, $window) {
 
     $scope.app = $sampleAppConfig.getDefault();
-  });
+  }]);

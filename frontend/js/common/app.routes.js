@@ -1,20 +1,20 @@
 angular.module('app.routes', ['ui.router'])
-  .run(function ($rootScope, $state, $stateParams) {
+  .run(["$rootScope", "$state", "$stateParams", function ($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
     return $rootScope.$stateParams = $stateParams;
-  })
-  .config(function ($stateProvider, $urlRouterProvider) {
+  }])
+  .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider
-      .otherwise('/main');
+      .otherwise('/home');
 
     $stateProvider
-      .state('app', {
-        url: '/main',
+      .state('home', {
+        url: '/home',
         templateUrl: 'tpl/app.html'
       })
-      .state('app.products', {
+      .state('products', {
         url:'/products',
         templateUrl: 'tpl/products/products.html',
         controller: 'ProductsCtrl'
       });
-  });
+  }]);

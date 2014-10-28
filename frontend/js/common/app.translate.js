@@ -8,13 +8,8 @@ angular.module('app.translate', [
   $translateProvider.preferredLanguage('en');
    $translateProvider.useLocalStorage();
 }])
-  .controller('translateCtrl', function ($scope, $translate) {
-    $scope.lang = { isopen: false };
-    $scope.langs = {en: 'English', bn: 'Bengali'};
-    $scope.selectLang = $scope.langs[$translate.proposedLanguage()] || "English";
-    $scope.setLang = function (langKey, $event) {
-      $scope.selectLang = $scope.langs[langKey];
+  .controller('translateCtrl', ["$scope", "$translate", function ($scope, $translate) {
+    $scope.setLang = function (langKey) {
       $translate.use(langKey);
-      $scope.lang.isopen = !$scope.lang.isopen;
     };
-  });
+  }]);

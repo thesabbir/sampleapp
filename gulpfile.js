@@ -113,6 +113,13 @@ gulp.task('vendors-fonts', function () {
       .pipe(gulp.dest('./frontend/vendors/fonts'));
   }
 });
+gulp.task('annotate', function () {
+  return gulp.src(files.appJs)
+    .pipe(ngAnnotate())
+    .pipe(angularFilesort())
+    .pipe(gulp.dest('./frontend/js'));
+});
+
 /*
 Build Task
  */
@@ -127,10 +134,4 @@ gulp.task('build', ['build-css', 'vendors-css', 'vendors-js', 'vendors-fonts', '
 /*
  Main Tasks
  */
-gulp.task('default', ['build', 'watch'], function () {
-  gulp.src('frontend')
-    .pipe(server({
-      livereload: true,
-      open: true
-    }));
-});
+gulp.task('default', ['build']);

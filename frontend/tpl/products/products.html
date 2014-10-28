@@ -1,12 +1,16 @@
 <div class="top-toolbar">
   <div class="container">
-    <div class="btn-toolbar f-r" role="toolbar">
-      <button ng-click="addNew()" class="btn btn-primary btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New
+    <form class="form-inline" role="form">
+      <button ng-click="addNew()" class="btn btn-primary btn-primary"><span class="glyphicon glyphicon-plus"></span>
+      <span translate="products.ADDANEW">Add a New</span>
       </button>
-    </div>
+      <div class="form-group">
+        <label class="sr-only" for="search">Search..</label>
+        <input type="text" class="form-control" id="search" placeholder="Type to Search.." ng-model="querytext">
+      </div>
+    </form>
   </div>
 </div>
-
 <div class="wrapper_10px" ng-controller="ProductsCtrl">
   <div ng-hide="products.length">
     <span>No Product Found !</span>
@@ -39,7 +43,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="product in products">
+      <tr ng-repeat="product in products | filter:querytext">
         <td ng-bind="product.id"></td>
         <td ng-bind="product.name"></td>
         <td ng-bind="product.price"></td>
@@ -51,8 +55,10 @@
         <td
           ng-bind="product.description"></td>
         <td>
-          <button class="btn btn-primary btn-xs" ng-click="edit(product.id)"><span class="glyphicon glyphicon-pencil"></span></button>
-          <button class="btn btn-danger btn-xs" ng-click="delete(product.id)"><span class="glyphicon glyphicon-remove"></span></button>
+          <button class="btn btn-primary btn-xs" ng-click="edit(product.id)"><span
+            class="glyphicon glyphicon-pencil"></span></button>
+          <button class="btn btn-danger btn-xs" ng-click="delete(product.id)"><span
+            class="glyphicon glyphicon-remove"></span></button>
         </td>
       </tr>
       </tbody>

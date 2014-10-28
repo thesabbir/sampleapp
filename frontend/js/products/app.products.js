@@ -1,12 +1,12 @@
 angular.module('app.products', [])
 
-  .controller('ProductsCtrl', function ($scope, $sailsSocket, $modal) {
-    $sailsSocket.get('/api/product').then(function (res) {
-
-      $scope.products = res.data;
+  .controller('ProductsCtrl', ["$scope", "$sailsSocket", "$modal", function ($scope, $sailsSocket, $modal) {
+    io.socket.on('product', function (ms) {
+      alert(ms.verb);
     });
-    io.socket.on('product', function (data) {
-      console.log(data);
+
+    $sailsSocket.get('/api/product').then(function (res) {
+      $scope.products = res.data;
     });
 
     $scope.addNew = function () {
@@ -28,7 +28,6 @@ angular.module('app.products', [])
       });
     };
     $scope.edit = function (id) {
-      console.log(id);
       var modalInstance = $modal.open({
         templateUrl: 'tpl/products/modal_form.html',
         controller: 'ProductEditCtrl',
@@ -46,11 +45,11 @@ angular.module('app.products', [])
       });
     };
 
-  })
-  .controller("ProductAddCtrl", function ($scope, $sailsSocket, $modalInstance) {
+  }])
+
+  .controller("ProductAddCtrl", ["$scope", "$sailsSocket", "$modalInstance", function ($scope, $sailsSocket, $modalInstance) {
     $scope.save = function (product) {
       $sailsSocket.post('/api/product', product).then(function (res) {
-        console.log(res);
         $modalInstance.close('saved');
       });
     };
@@ -58,13 +57,13 @@ angular.module('app.products', [])
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-  })
-  .controller("ProductEditCtrl", function ($scope, $sailsSocket, $modalInstance, product, mode) {
+  }])
+
+  .controller("ProductEditCtrl", ["$scope", "$sailsSocket", "$modalInstance", "product", "mode", function ($scope, $sailsSocket, $modalInstance, product, mode) {
     $scope.product = product;
     $scope.mode = mode;
     $scope.save = function (product) {
       $sailsSocket.put('/api/product/' + product.id, product).then(function (res) {
-        console.log(res);
         $modalInstance.close('saved');
 
       });
@@ -73,17 +72,16 @@ angular.module('app.products', [])
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-  })
-  .controller("ProductDeleteCtrl", function ($scope, $sailsSocket, $modalInstance, id) {
+  }])
+
+  .controller("ProductDeleteCtrl", ["$scope", "$sailsSocket", "$modalInstance", "id", function ($scope, $sailsSocket, $modalInstance, id) {
     $scope.delete = function (product) {
       $sailsSocket.delete('/api/product/' + id).then(function (res) {
-        console.log(res);
         $modalInstance.close('deleted');
       })
     };
 
-
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-  });
+  }]);
