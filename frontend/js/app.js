@@ -1,20 +1,20 @@
 var App = angular.module('App', [
-    'sails.io',
-    'ngAnimate',
-    'ui.bootstrap',
+  'sails.io',
+  'ngAnimate',
+  'ui.bootstrap',
   'ui.jq',
-    'ngCookies',
-    'ngStorage',
-    'app.configs',
-    'app.products',
-    'app.routes',
-    'app.translate'
+  'ngCookies',
+  'ngStorage',
+  'app.configs',
+  'app.products',
+  'app.routes',
+  'app.translate'
 ])
-    .config(function ($sampleAppConfigProvider) {
-        $sampleAppConfigProvider.setName('Sample App');
-    }
+  .config(function ($sampleAppConfigProvider) {
+    $sampleAppConfigProvider.setName('Sample App');
+  }
 )
-    .controller('AppCtrl', function ($scope, $sampleAppConfig, $window) {
+  .controller('AppCtrl', function ($scope, $sampleAppConfig, $window) {
 
-        $scope.app = $sampleAppConfig.getDefault();
-    });
+    $scope.app = $sampleAppConfig.getDefault();
+  });

@@ -1,0 +1,56 @@
+<div class="modal-header">
+  <h3 class="title" ng-bind="mode ? 'Edit a Product' : 'Add an Product'"></h3>
+</div>
+
+<div class="modal-body">
+  <div class="containe">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <div class="col-xs-9">
+          <input class="form-control" type="text" id="name" required="true"
+                 placeholder="Product Name"
+                 ng-value="product.name"
+                 ng-model="product.name"/><br/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-5">
+          <input class="form-control" type="number" id="price" min="0" required="true"
+                 placeholder="Product Price"
+                 ng-value="product.price"
+                 ng-model="product.price"/><br/>
+        </div>
+
+        <div class="col-xs-4">
+          <input class="form-control" type="number" id="stocks" min="0"
+                 placeholder="Stock Amount"
+                 ng-value="product.stocks"
+                 ng-model="product.stoks"/><br/>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <div class="col-xs-9">
+          <input class="form-control" type="text" id="manufacturer" required="true"
+                 placeholder="Manufacturer Name"
+                 ng-value="product.manufacturer"
+                 ng-model="product.manufacturer"/><br/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-9">
+          <textarea
+            name="product.description" ng-model="product.description" class="form-control" id="description" cols="30"
+            rows="5" placeholder="A small description.."></textarea>
+        </div>
+
+      </div>
+  </div>
+  </form>
+
+</div>
+<div class="modal-footer">
+  <!--<input type="hidden" name="_csrf" ng-value="_csrf" />-->
+  <input class="btn btn-primary" type="submit" ng-click="save(product)" value="Save">
+  <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+</div>

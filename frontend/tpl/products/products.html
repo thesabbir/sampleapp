@@ -1,3 +1,12 @@
+<div class="top-toolbar">
+  <div class="container">
+    <div class="btn-toolbar f-r" role="toolbar">
+      <button ng-click="addNew()" class="btn btn-primary btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New
+      </button>
+    </div>
+  </div>
+</div>
+
 <div class="wrapper_10px" ng-controller="ProductsCtrl">
   <div ng-hide="products.length">
     <span>No Product Found !</span>
@@ -7,6 +16,7 @@
            data-page-size="5">
       <thead>
       <tr>
+        <th>ID</th>
         <th data-toggle="true">
           Name
         </th>
@@ -30,21 +40,24 @@
       </thead>
       <tbody>
       <tr ng-repeat="product in products">
+        <td ng-bind="product.id"></td>
         <td ng-bind="product.name"></td>
         <td ng-bind="product.price"></td>
         <td ng-bind="product.stocks"></td>
         <td
-            ng-bind="product.manufacturer"></td>
+          ng-bind="product.manufacturer"></td>
         <td
-            ng-bind="product.updatedAt | date:'MM-dd-yyyy h:mma'"></td>
+          ng-bind="product.updatedAt | date:'MM-dd-yyyy h:mma'"></td>
         <td
           ng-bind="product.description"></td>
         <td>
-          <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
-          <button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+          <button class="btn btn-primary btn-xs" ng-click="edit(product.id)"><span class="glyphicon glyphicon-pencil"></span></button>
+          <button class="btn btn-danger btn-xs" ng-click="delete(product.id)"><span class="glyphicon glyphicon-remove"></span></button>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+

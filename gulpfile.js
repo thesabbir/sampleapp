@@ -116,7 +116,7 @@ gulp.task('vendors-fonts', function () {
 /*
 Build Task
  */
-gulp.task('build', ['build-css', 'vendors-css', 'vendors-js', 'vendors-fonts' ], function () {
+gulp.task('build', ['build-css', 'vendors-css', 'vendors-js', 'vendors-fonts', 'watch' ], function () {
   gulp.src('./frontend/index.html')
     .pipe(htmlInject(files.appJs, { sort: true}))
     .pipe(htmlInject(files.appCss))
