@@ -20,7 +20,6 @@
         "angular-translate-storage-local": "~2.3.0",
         "angular-translate-storage-cookie": "~2.3.0",
         "bootstrap": "~3.2.0",
-        "font-awesome": "~4.2.0",
         "angularSails": "~0.10.0-pre",
         "FooTable": "git://github.com/thesabbir/FooTable.git#new-build"
     }
