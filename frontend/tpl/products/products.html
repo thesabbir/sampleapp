@@ -1,0 +1,50 @@
+<div class="wrapper_10px" ng-controller="ProductsCtrl">
+  <div ng-hide="products.length">
+    <span>No Product Found !</span>
+  </div>
+  <div class="products" ng-show="products.length">
+    <table class="footable table toggle-circle" ui-jq="footable" data-filter="#filter"
+           data-page-size="5">
+      <thead>
+      <tr>
+        <th data-toggle="true">
+          Name
+        </th>
+        <th>
+          Price
+        </th>
+        <th>
+          Stocks
+        </th>
+        <th data-hide="all">
+          Manufacturer
+        </th>
+        <th data-hide="phone,tablet">
+          Last Updated
+        </th>
+        <th data-hide="all">
+          Description
+        </th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="product in products">
+        <td ng-bind="product.name"></td>
+        <td ng-bind="product.price"></td>
+        <td ng-bind="product.stocks"></td>
+        <td
+            ng-bind="product.manufacturer"></td>
+        <td
+            ng-bind="product.updatedAt | date:'MM-dd-yyyy h:mma'"></td>
+        <td
+          ng-bind="product.description"></td>
+        <td>
+          <button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>
+          <button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

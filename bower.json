@@ -1,0 +1,27 @@
+{
+    "name": "Sample App",
+    "version": "0.0.1",
+    "authors": [
+        "Sabbir Ahmed <sabbiirr@gmail.com>"
+    ],
+    "license": "GPL v3",
+    "ignore": [
+        "node_modules",
+        "bower_components"
+        ],
+    "dependencies": {
+        "angular-ui-router": "~0.2.11",
+        "angular-bootstrap": "~0.11.0",
+        "angular-animate": "~1.2.24",
+        "angular-cookies": "~1.2.24",
+        "ngstorage": "~0.3.0",
+        "angular-translate": "~2.3.0",
+        "angular-translate-loader-static-files": "~2.3.0",
+        "angular-translate-storage-local": "~2.3.0",
+        "angular-translate-storage-cookie": "~2.3.0",
+        "bootstrap": "~3.2.0",
+        "font-awesome": "~4.2.0",
+        "angularSails": "~0.10.0-pre",
+        "FooTable": "git://github.com/thesabbir/FooTable.git#new-build"
+    }
+}
