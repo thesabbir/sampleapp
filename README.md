@@ -1,1 +1,1 @@
-Sample REST and Angular App
+Sample REST Application with SailJS back-end and angular frontend.
