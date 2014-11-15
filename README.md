@@ -8,4 +8,6 @@ Sample REST Application with SailJS back-end and angular frontend.
 * UI Router, UI Bootstarp, Ui Jq
 
 ###Disclaimer
-Unfinished Stuff :p
+* No Policies yet
+* No Ascociations or Models yet
+* Unfinished Stuff
